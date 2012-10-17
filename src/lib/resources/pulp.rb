@@ -10,6 +10,8 @@
 # have received a copy of GPLv2 along with this software; if not, see
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt.
 
+require 'iconv'
+
 module Resources
 
   module Pulp
@@ -18,6 +20,7 @@ module Resources
       def self.post path, body
         Rails.logger.debug "Sending POST request to Pulp: #{path}"
         client = PulpResource.rest_client(Net::HTTP::Post, :post, path_with_pulp_prefix(path))
+        debugger
         client.post body, PulpResource.default_headers
       end
 
@@ -222,7 +225,8 @@ module Resources
 
         # :id, :name, :arch, :groupid, :feed
         def create attrs
-          body = put(Repository.repository_path, JSON.generate(attrs), self.default_headers).body
+          utf8body =  Iconv.conv("UTF8", "LATIN1", JSON.generate(attrs))
+          body = put(Repository.repository_path, utf8body, self.default_headers).body
           JSON.parse(body).with_indifferent_access
         end
 

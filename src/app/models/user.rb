@@ -10,6 +10,7 @@
 # have received a copy of GPLv2 along with this software; if not, see
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt.
 
+require 'iconv'
 require 'ldap'
 require 'util/threadsession'
 require 'util/password'
@@ -366,7 +367,7 @@ class User < ActiveRecord::Base
 
   def self.pulp_oauth_header
     raise Errors::UserNotSet, "unauthenticated to call a backend engine" if User.current.nil?
-    { 'pulp-user' => User.current.username }
+    { 'pulp-user' =>  User.current.username }
   end
 
   # is the current user consumer? (rhsm)

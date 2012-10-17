@@ -10,6 +10,7 @@
 # have received a copy of GPLv2 along with this software; if not, see
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.txt.
 
+require 'iconv'
 require 'oauth'
 require 'cgi'
 
@@ -106,7 +107,7 @@ class HttpResource
       a_path = URI.encode(a_path)
       resource_permissions.before_post_callback(a_path, payload, headers)
       client = rest_client(Net::HTTP::Post, :post, a_path)
-      result = process_response(client.post(payload, headers))
+      result = process_response(client.post(Iconv.conv("UTF8", "LATIN1", payload), headers))
       resource_permissions.after_post_callback(a_path, payload, headers, result)
       result
     rescue RestClient::Exception => e
@@ -119,7 +120,7 @@ class HttpResource
       a_path = URI.encode(a_path)
       resource_permissions.before_put_callback(a_path, payload, headers)
       client = rest_client(Net::HTTP::Put, :put, a_path)
-      result = process_response(client.put(payload, headers))
+      result = process_response(client.put(Iconv.conv("UTF8", "LATIN1", payload), headers))
       resource_permissions.after_put_callback(a_path, payload, headers, result)
       result
     rescue RestClient::Exception => e
