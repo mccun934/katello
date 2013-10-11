@@ -60,10 +60,9 @@ Puppet modules can be uploaded using the katello cli:
 
 or via the web ui:
 
-Content -> Repositories -> Products -> Select desired product -> select desired puppet Repository
+Content -> Repositories -> Products -> Select desired product -> Select desired puppet Repository -> Select file on the right
 
-LINK TO SCREENSHOT
-
+![](puppet_upload.png)
 
 Subscribing a System to a Product
 ---------------------------------
@@ -78,7 +77,7 @@ Once subscriptions are attached you will need to run ```subscription-manager ref
 This happens automatically every four hours.
 
 
-LINK TO SCREENSHOT
+![](subscribe_product.png)
   
 
 * via subscription manager on the client machine itself
