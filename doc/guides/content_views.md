@@ -29,3 +29,26 @@ To utilize content views for filtering and snapshoting:
 
 At this point the system will no longer be getting content directly from Library, but from the content view. Updates to library will not affect this system.
 
+
+
+Content View Definition
+-----------------------
+
+
+Publishing a Content View
+-------------------------
+
+
+Subscribing a System
+--------------------
+
+
+Refreshing a content View
+-------------------------
+
+
+Promoting a Content View
+------------------------
+
+
+
