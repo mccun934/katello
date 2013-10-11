@@ -15,35 +15,46 @@ Definitions
 
 Creating a Product
 ------------------
-From the web UI:
+From the web UI, navigate to:
+
+Content -> Repositories -> Products -> New Product (top right)
+
+![](product_create.png)
 
 
-From the Cli:
+From the CLI:
 
 ```katello -u admin -p admin product create --org=ACME_Corporation --provider=MyProvider --name=EPEL```
 
 
 Creating a Repository
 ---------------------
-From the web UI:
+From the web UI, navigate to:
+
+Content -> Repositories -> Products -> Select desired product -> Create Repository (right hand side)
+
+![](repo_create.png)
 
 
-From the cli:
+From the CLI:
 
 ```katello repo  create  --org=ACME_Corporation --name="EPEL 6 x86_64" --product="EPEL" --url=http://dl.fedoraproject.org/pub/epel/6/x86_64/```
 
 Syncing a Repository
 --------------------
-From the web UI:
+From the web UI naviagte to:
 
+Content -> Sync Management -> Sync Status
 
-From the cli:
+INSERT SCREENSHOT
+
+From the CLI:
 
 ```katello repo synchronize --org=ACME_Corporation --name="EPEL 6 x86_64" --product="EPEL"```
 
 Uploading Rpm Content
 ---------------------
-A single rpm can be uploaded using the katello cli:
+A single rpm can be uploaded using the katello CLI:
 
 ```katello -u admin -p admin repo content_upload  --repo="repo name" --product="product name" --filepath=/path/to/package-1.0.0.x86_64.rpm  --content_type=yum --org=ACME_Corporation```
 
@@ -54,11 +65,11 @@ An entire directory can also be uploaded:
 
 Uploading puppet content
 ------------------------
-Puppet modules can be uploaded using the katello cli:
+Puppet modules can be uploaded using the katello CLI:
 
 ```katello -u admin -p admin repo content_upload  --repo="repo name" --product="product name" --filepath=/path/to/module.zip  --content_type=puppet --org=ACME_Corporation```
 
-or via the web ui:
+or via the web ui, navigate to:
 
 Content -> Repositories -> Products -> Select desired product -> Select desired puppet Repository -> Select file on the right
 
