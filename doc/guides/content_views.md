@@ -43,7 +43,7 @@ Content > Content View Definitions
 
 From the cli:
 
-```katello -u admin -p admin  content definition create --name="CustomizedRHEL" --org=ACME_Corporation```
+```katello -u admin -p admin  content definition create --name="Custom RHEL" --org=ACME_Corporation```
 
 
 ## Adding a Product or Repository ##
@@ -59,10 +59,16 @@ Content > Content View Definitions > Select the desired content view definition 
 
 ![](definition_repo_product.png)
 
+From the cli, adding a product:
+
+```katello -u admin -p admin content definition add_product  --org=ACME_Corporation --name="Custom RHEL" --product="Red Hat Enterprise Linux Server"```
+
+From the cli, adding a repository:
+
+```katello -u admin -p admin content definition add_repo  --org=ACME_Corporation --name="Custom RHEL" --product="Red Hat Enterprise Linux Server" --repo=""Red Hat Enterprise Linux 6 Server RPMs x86_64 6Server"``` 
 
 
-Publishing a Content View
--------------------------
+## Publishing a Content View  ##
 
 
 Subscribing a System
