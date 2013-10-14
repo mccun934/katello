@@ -46,7 +46,7 @@ From the web UI naviagte to:
 
 Content -> Sync Management -> Sync Status
 
-INSERT SCREENSHOT
+![](repo_sync.png)
 
 From the CLI:
 
