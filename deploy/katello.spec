@@ -121,7 +121,6 @@ umask 0077
 test -f $TOKEN || (echo $(</dev/urandom tr -dc A-Za-z0-9 | head -c128) > $TOKEN \
     && chmod 600 $TOKEN && chown katello:katello $TOKEN)
 
-%post
 usermod -a -G katello-shared tomcat
 
 %files
